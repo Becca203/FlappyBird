@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Pipes : MonoBehaviour
@@ -14,11 +13,12 @@ public class Pipes : MonoBehaviour
 
     private void Update()
     {
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        transform.position += Vector3.left * speed * Time.deltaTime ;
 
         if (transform.position.x < leftEdge)
         {
             Destroy(gameObject);
         }
     }
+
 }
