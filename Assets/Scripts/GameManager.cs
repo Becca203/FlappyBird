@@ -11,6 +11,9 @@ public class GameManager : MonoBehaviour
 
     public GameObject gameOver;
 
+    public AudioSource PointUp;
+    public AudioSource Die;
+
     private int score;
 
     private void Awake()
@@ -53,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         playButton.SetActive(true);
         gameOver.SetActive(true);
-
+        Die.Play(); 
         Pause();
     }
 
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
     {
         score++;
         scoreText.text = score.ToString();
+        PointUp.Play(); 
     }
 
 }

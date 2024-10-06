@@ -37,6 +37,8 @@ public class pajaro : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
         {
             direction = Vector3.up * strength;
+
+            transform.rotation = Quaternion.Euler(0, 0, 30);
         }
 
         if (Input.touchCount > 0)
@@ -46,13 +48,20 @@ public class pajaro : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 direction = Vector3.up * strength;
+
+                transform.rotation = Quaternion.Euler(0, 0, 30);
             }
         }
 
-        // Apply gravity and update the position
         direction.y += gravity * Time.deltaTime;
         transform.position += direction * Time.deltaTime;
+
+        if (direction.y < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -30);
+        }
     }
+
 
     private void AnimateSprite()
     {
